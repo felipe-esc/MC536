@@ -1,0 +1,222 @@
+<!-- SELECTOR OF FORMS -->
+<div class="forms">
+  <div class="select-type-form">
+    <mat-label> Formulários: </mat-label>
+    <mat-form-field>
+      <mat-label>Select an option</mat-label>
+      <mat-select [(value)]="formtype">
+        <mat-option>None</mat-option>
+        <mat-option value="Medico">Medico</mat-option>
+        <mat-option value="Paciente">Paciente</mat-option>
+        <mat-option value="Consulta">Consulta</mat-option>
+        <mat-option value="Exame">Exame</mat-option>
+        <mat-option value="Cirurgia">Cirurgia</mat-option>
+        <mat-option value="Internação">Internação</mat-option>
+        <mat-option value="AtendimentoPs">Atendimento PS</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+<!-- FORMS -->
+<!-- medico form -->
+<div class="form-medico" *ngIf="formtype == 'Medico'">
+  <h1> Formulario do Médico </h1>
+  <form #medicForm="ngForm" (ngSubmit) = "onSubmit0()">
+    <div class="form-group">
+      <label for="crm"> CRM: </label>
+      <input type="text" class="form-control" id = "crm" [(ngModel)]="model0.crm" name = "crm" required>
+    </div>
+    <div>
+      <label for="tel"> Tel: </label>
+      <input type="text" class="form-control" id = "tel" [(ngModel)]="model0.tel" name = "tel" required>
+    </div>
+    <div>
+      <label for="email"> Email: </label>
+      <input type="text" class="form-control" id = "email" [(ngModel)]="model0.email" name = "email" required>
+    </div>
+    <div>
+      <label for="nome"> Nome: </label>
+      <input type="text" class="form-control" id = "nome" [(ngModel)]="model0.nome" name = "nome" required>
+    </div>
+    <div>
+      <label for="cpf"> cpf: </label>
+      <input type="text" class="form-control" id = "cpf" [(ngModel)]="model0.cpf" name = "cpf" required>
+    </div>
+    <div>
+      <label for="especializacao"> CRM: </label>
+      <input type="text" class="form-control" id = "especializacao" [(ngModel)]="model0.especializacao" name = "especializacao" required>
+    </div>
+    <div>
+      <label for="datanasc"> Data Nascimento: </label>
+      <input type="text" class="form-control" id = "datanasc" [(ngModel)]="model0.datanasc" name = "datanasc" required>
+    </div>
+
+    <button type="submit" class="btn btn-success"> Enviar </button>
+  </form>
+</div>
+
+<!-- paciente form -->
+<div class="form-paciente" *ngIf="formtype == 'Paciente'">
+  <h1> Formulario do Paciente </h1>
+  <form #pacienteForm="ngForm" (ngSubmit) = "onSubmit1()">
+    <div class="form-group">
+      <label for="cpf"> CPF: </label>
+      <input type="text" class="form-control" id = "cpf" [(ngModel)]="model1.cpf" name = "cpf" required>
+    </div>
+    <div>
+      <label for="tel"> Tel: </label>
+      <input type="text" class="form-control" id = "tel" [(ngModel)]="model1.tel" name = "tel" required>
+    </div>
+    <div>
+      <label for="email"> Email: </label>
+      <input type="text" class="form-control" id = "email" [(ngModel)]="model1.email" name = "email" required>
+    </div>
+    <div>
+      <label for="nome"> Nome: </label>
+      <input type="text" class="form-control" id = "nome" [(ngModel)]="model1.nome" name = "nome" required>
+    </div>
+    <div>
+      <label for="sexo"> Sexo: </label>
+      <input type="text" class="form-control" id = "sexo" [(ngModel)]="model1.sexo" name = "sexo" required>
+    </div>
+    <div>
+      <label for="alergia"> Alergia: </label>
+      <input type="text" class="form-control" id = "alergia" [(ngModel)]="model1.alergia" name = "alergia" required>
+    </div>
+    <div>
+      <label for="datanasc"> Data Nascimento: </label>
+      <input type="text" class="form-control" id = "datanasc" [(ngModel)]="model1.datanasc" name = "datanasc" required>
+    </div>
+
+    <button type="submit" class="btn btn-success"> Enviar </button>
+  </form>
+</div>
+
+<!-- consulta form -->
+<div class="form-consulta" *ngIf="formtype == 'Consulta'">
+  <h1> Formulario da Consulta </h1>
+  <form #consultaForm="ngForm" (ngSubmit) = "onSubmit2()">
+    <div class="form-group">
+      <label for="hora"> Hora: </label>
+      <input type="text" class="form-control" id = "hora" [(ngModel)]="model2.hora" name = "hora" required>
+    </div>
+    <div>
+      <label for="sala"> Sala: </label>
+      <input type="text" class="form-control" id = "sala" [(ngModel)]="model2.sala" name = "sala" required>
+    </div>
+
+    <button type="submit" class="btn btn-success"> Enviar </button>
+  </form>
+</div>
+
+<!-- exame form -->
+<div class="form-exame" *ngIf="formtype == 'Exame'">
+  <h1> Formulario do Exame </h1>
+  <form #exameForm="ngForm" (ngSubmit) = "onSubmit3()">
+    <div class="form-group">
+      <label for="protocolo"> Protocolo: </label>
+      <input type="text" class="form-control" id = "crm" [(ngModel)]="model3.crm" name = "crm" required>
+    </div>
+    <div>
+      <label for="data"> Data: </label>
+      <input type="text" class="form-control" id = "data" [(ngModel)]="model3.data" name = "data" required>
+    </div>
+    <div>
+      <label for="data"> Email: </label>
+      <input type="text" class="form-control" id = "data" [(ngModel)]="model3.data" name = "data" required>
+    </div>
+    <div>
+      <label for="hora"> Hora: </label>
+      <input type="text" class="form-control" id = "hora" [(ngModel)]="model3.hora" name = "hora" required>
+    </div>
+    <div>
+      <label for="tipo"> Tipo: </label>
+      <input type="text" class="form-control" id = "tipo" [(ngModel)]="model3.tipo" name = "tipo" required>
+    </div>
+    <div>
+      <label for="resultado"> Resultado: </label>
+      <input type="text" class="form-control" id = "resultado" [(ngModel)]="model3.resultado" name = "resultado" required>
+    </div>
+
+    <button type="submit" class="btn btn-success"> Enviar </button>
+  </form>
+</div>
+
+<!-- cirurgia form -->
+<div class="form-cirurgia" *ngIf="formtype == 'Cirurgia'">
+  <h1> Formulario da Cirurgia </h1>
+  <form #cirugiaForm="ngForm" (ngSubmit) = "onSubmit4()">
+    <div class="form-group">
+      <label for="protocolo"> Protocolo: </label>
+      <input type="text" class="form-control" id = "protocolo" [(ngModel)]="model4.protocolo" name = "protocolo" required>
+    </div>
+    <div>
+      <label for="data"> Data: </label>
+      <input type="text" class="form-control" id = "data" [(ngModel)]="model4.data" name = "data" required>
+    </div>
+    <div>
+      <label for="hora"> Hora: </label>
+      <input type="text" class="form-control" id = "hora" [(ngModel)]="model4.hora" name = "hora" required>
+    </div>
+    <div>
+      <label for="tipo"> Tipo: </label>
+      <input type="text" class="form-control" id = "tipo" [(ngModel)]="model4.tipo" name = "tipo" required>
+    </div>
+
+    <button type="submit" class="btn btn-success"> Enviar </button>
+  </form>
+</div>
+
+<!-- internacao form -->
+<div class="form-internacao" *ngIf="formtype == 'Internação'">
+  <h1> Formulario da Internação </h1>
+  <form #internacaoForm="ngForm" (ngSubmit) = "onSubmit5()">
+    <div class="form-group">
+      <label for="protocolo"> Protocolo: </label>
+      <input type="text" class="form-control" id = "protocolo" [(ngModel)]="model5.protocolo" name = "protocolo" required>
+    </div>
+    <div>
+      <label for="quarto"> Quarto: </label>
+      <input type="text" class="form-control" id = "quarto" [(ngModel)]="model5.quarto" name = "quarto" required>
+    </div>
+    <div>
+      <label for="datain"> Data Entrada: </label>
+      <input type="text" class="form-control" id = "datain" [(ngModel)]="model5.datain" name = "datain" required>
+    </div>
+    <div>
+      <label for="dataout"> Data Saida: </label>
+      <input type="text" class="form-control" id = "dataout" [(ngModel)]="model5.dataout" name = "dataout" required>
+    </div>
+    <div>
+      <label for="leito"> Leito: </label>
+      <input type="text" class="form-control" id = "cpf" [(ngModel)]="model5.cpf" name = "cpf" required>
+    </div>
+
+    <button type="submit" class="btn btn-success"> Enviar </button>
+  </form>
+</div>
+
+<!-- atendimentoPs form -->
+<div class="form-atendimentoPs" *ngIf="formtype == 'AtendimentoPs'">
+  <h1> Formulario do Atendimento PS </h1>
+  <form #atendimentopsForm="ngForm" (ngSubmit) = "onSubmit6()">
+    <div class="form-group">
+      <label for="protocolo"> Protocolo: </label>
+      <input type="text" class="form-control" id = "protocolo" [(ngModel)]="model6.protocolo" name = "protocolo" required>
+    </div>
+    <div>
+      <label for="data"> Data: </label>
+      <input type="text" class="form-control" id = "data" [(ngModel)]="model6.data" name = "data" required>
+    </div>
+    <div>
+      <label for="tipo"> Tipo: </label>
+      <input type="text" class="form-control" id = "tipo" [(ngModel)]="model6.tipo" name = "tipo" required>
+    </div>
+    <div>
+      <label for="nomemedico"> Nome do Medico: </label>
+      <input type="text" class="form-control" id = "nomemedico" [(ngModel)]="model6.nomemedico" name = "nomemedico" required>
+    </div>
+
+    <button type="submit" class="btn btn-success"> Enviar </button>
+  </form>
+</div>

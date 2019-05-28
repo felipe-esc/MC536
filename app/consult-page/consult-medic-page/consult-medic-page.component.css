@@ -1,0 +1,36 @@
+.filter1{
+  height: 100px;
+  width: 300px;
+  position: relative;
+  top: 10px;
+  left: 45px;
+}
+
+.filter2{
+  height: 100px;
+  width: 300px;
+  position: relative;
+  top: 20px;
+  left: 45px;
+}
+
+.filters{
+  display: flex;
+  flex-direction: column;
+}
+
+.checkboxes{
+  display: flex;
+  flex-direction: column;
+}
+
+
+
+.medico-forms {
+  display: flex;
+  flex-direction: column;
+}
+
+.medico-forms > * {
+  width: 50%;
+}

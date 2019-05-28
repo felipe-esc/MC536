@@ -1,0 +1,70 @@
+
+<!-- SEARCH BAR -->
+
+<mat-form-field>
+  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="busca">
+</mat-form-field>
+
+<div class="filters">
+<!-- FILTROS DE BUSCA PRIMARIA E RELACIONAL-->
+<mat-form-field>
+<div class="filter1">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selected1">
+    <mat-option>None</mat-option>
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2">Option 2</mat-option>
+    <mat-option value="option3">Option 3</mat-option>
+  </mat-select>
+</div>
+</mat-form-field>
+<mat-form-field>
+<div class="filter2">
+  <mat-label>Select an option</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option>None</mat-option>
+    <mat-option value="option1">Option 1</mat-option>
+    <mat-option value="option2">Option 2</mat-option>
+    <mat-option value="option3">Option 3</mat-option>
+  </mat-select>
+</div>
+</mat-form-field>
+</div>
+
+<!-- FILTROS RELACIONAIS -->
+<div class="buscachecktabela">
+<div class="checkboxes">
+  <mat-label> Busca Relacional </mat-label>
+  <mat-checkbox [(ngModel)]="nomeChecked">Medico</mat-checkbox>
+  <mat-checkbox [(ngModel)]="crmChecked">Paciente</mat-checkbox>
+  <mat-checkbox [(ngModel)]="idadeChecked">Exame</mat-checkbox>
+</div>
+
+<!-- TABELAS -->
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8>" *ngIf="showTable">
+  <!-- Colunas da tabela, para adicionar novas colunas basta
+      criar outro ng-container mudando o valor de matColumnDef
+      e o elemento pego do objeto (e.g {{ tuple.<nome_do_campo_desejado> }} -->
+  <ng-container matColumnDef="medico">
+    <th mat-header-cell *matHeaderCellDef>Medico</th>
+    <td mat-cell *matCellDef="let tuple"> {{ tuple.medico }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="crm">
+    <th mat-header-cell *matHeaderCellDef>CRM</th>
+    <td mat-cell *matCellDef="let tuple"> {{tuple.crm }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="idade">
+    <th mat-header-cell *matHeaderCellDef>Idade</th>
+    <td mat-cell *matCellDef="let tuple"> {{ tuple.idade }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+
+<!-- FORMULARIO -->
+
+<app-generic-form></app-generic-form>
